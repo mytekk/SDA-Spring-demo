@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.service.HomeService;
 import com.example.demo.service.RandomGeneratorService;
+import com.example.demo.service.StringGeneratorService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -55,5 +56,24 @@ public class DemoApplication {
 		randomGeneratorService.setBound(10000);
 		randomGeneratorService.setShift(500);
 		return randomGeneratorService;
+	}
+
+	@Bean
+	public StringGeneratorService generalStringGeneratorService() {
+		return new StringGeneratorService();
+	}
+
+	@Bean
+	public StringGeneratorService lettersStringGeneratorService() {
+		StringGeneratorService lettersStringGeneratorService = new StringGeneratorService();
+		lettersStringGeneratorService.setLetters(true);
+		return lettersStringGeneratorService;
+	}
+
+	@Bean
+	public StringGeneratorService numbersStringGeneratorService() {
+		StringGeneratorService lettersStringGeneratorService = new StringGeneratorService();
+		lettersStringGeneratorService.setNumbers(true);
+		return lettersStringGeneratorService;
 	}
 }
